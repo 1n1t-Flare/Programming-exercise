@@ -2,7 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 
-//1-2}
+//1-2
 void printrows()
 {
     size_t count=1;
