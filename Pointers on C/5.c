@@ -66,7 +66,7 @@ void assign_bit(char* bit_array,unsigned bit_number,int value)
 
 int test_bits(char* bit_array,unsigned bit_number)
 {
-    unsigned test = 1 << bitnumber % 8;
+    unsigned test = 1 << bit_number % 8;
     test &= *(bit_array+bit_number/8);
     if (test) return 1;
     else      return 0;
