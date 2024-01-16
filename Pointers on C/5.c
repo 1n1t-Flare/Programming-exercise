@@ -46,25 +46,30 @@ unsigned int reverse_bits(unsigned int value)
 }
 
 
-//5-4
+
+//5-4   suitable for computers whose CHAR_BIT eaquls to 8.
 void set_bit(char* bit_array,unsigned bit_number)
 {
-    *(bit_array+bit_number)=1;
+    *(bit_array+bit_number/8) |= (1 << bit_number % 8);
 }
+
 void clear_bit(char* bit_array,unsigned bit_number)
 {
-    *(bit_array+bit_number)=0;
+    *(bit_array+bit_number/8) &= ~(1 << bit_number % 8);
 }
+
 void assign_bit(char* bit_array,unsigned bit_number,int value)
 {
-    if (value) *(bit_array+bit_number)=1;
-    else *(bit_array+bit_number)=0;
+    if (value) set_bit(bit_array,bit_number);
+    else       clear_bit(bit_array,bit_number);
 }
+
 int test_bits(char* bit_array,unsigned bit_number)
 {
-    int test=0;
-    if (*(bit_array+bit_number)!=0) test=1;
-    return test;
+    unsigned test = 1 << bitnumber % 8;
+    test &= *(bit_array+bit_number/8);
+    if (test) return 1;
+    else      return 0;
 }
 
 
